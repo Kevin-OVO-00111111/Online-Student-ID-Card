@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8" />
+    <title>學生證生成</title>
+    <style>
+        body { font-family: 'Noto Sans TC', sans-serif; padding: 20px; }
+        label { font-size: 20px; display: block; margin-top: 12px; }
+        input[type=text], select {
+            width: 300px; height: 32px; font-size: 18px;
+        }
+        input[type=file] { font-size: 18px; margin-top: 10px; }
+        button {
+            margin-top: 20px; padding: 10px 30px; font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="font-size: 28px;">學生證生成器</h1>
+
+    <form action="/generate" method="POST" enctype="multipart/form-data">
+
+        <label>姓名：</label>
+        <input type="text" name="name" required />
+
+        <label>學號：</label>
+        <input type="text" name="student_id" required />
+
+        <label>系所：</label>
+        <input type="text" name="dept" required /> <!-- ✅ 跟 app.py 一致 -->
+
+        <label>性別：</label>
+        <select name="gender" required>
+            <option value="男">男</option>
+            <option value="女">女</option>
+        </select>
+
+        <label>上傳照片：</label>
+        <input type="file" name="photo" accept="image/*" required />
+
+        <button type="submit">生成學生證</button>
+    </form>
+</body>
+</html>
